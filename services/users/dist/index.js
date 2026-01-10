@@ -9,9 +9,10 @@ connectDb();
 connectRabbitMq();
 redisClient.connect().then(() => console.log(`Redis connected`)).catch(console.error);
 const app = express();
+app.use(express.json());
 app.use('api/v1', userRouter);
 const port = process.env.PORT;
 app.listen(port, () => {
-    console.log(`Server running on port :${port}`);
+    console.log(`User service running on port :${port}`);
 });
 //# sourceMappingURL=index.js.map

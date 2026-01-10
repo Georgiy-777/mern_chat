@@ -9,6 +9,7 @@ connectDb();
 connectRabbitMq()
 redisClient.connect().then(()=>console.log(`Redis connected`)).catch(console.error)
 const app = express()
+app.use(express.json())
 app.use('api/v1', userRouter)
 const port = process.env.PORT
 
